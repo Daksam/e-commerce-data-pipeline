@@ -38,25 +38,14 @@ def ingest_data(data, engine):
     finally:
         session.close()  # Ensure the session is closed
 
-def create_indexes(engine):
-    with engine.connect() as connection:
-        trans = connection.begin()
-        try:
-            connection.execute(text('CREATE INDEX IF NOT EXISTS idx_pu_location ON taxi_trips ("PULocationID");'))
-            connection.execute(text('CREATE INDEX IF NOT EXISTS idx_do_location ON taxi_trips ("DOLocationID");'))
-            trans.commit()
-            print("Indexes created successfully.")
-        except exc.SQLAlchemyError as e:
-            print(f"An error occurred during index creation: {e}")
-            trans.rollback()
 
 def main():
-    filepath = Path(__file__).parent / "data-yellow-202103.parquet"
+    filepath = Path(__file__).parent / ""
     dataset = load_dataset(str(filepath))
     transformed_data = transform_data(dataset)
     
     # Define the connection_string outside the function
-    connection_string = "postgresql://postgres:derek@db:5432/my_database"
+    connection_string = ""
     engine = get_db_engine(connection_string)
     
     ingest_data(transformed_data, engine)
