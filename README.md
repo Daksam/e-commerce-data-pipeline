@@ -13,3 +13,4 @@ Contains orders data, including Order ID, Order Status, Category Name, SKU, Cust
 
 ### Deliveries Data - Market 1 & 2 (deliveries.csv)
 Contains deliveries data, including Task_ID, Order_ID, Relationship, Team_Name, Task_Type, Notes, Agent_ID, Agent_Name, Distance(m), Total_Time_Taken(min), Task_Status, Ref_Images, Rating, Review, Latitude, Longitude, Tags, Promo_Applied, Custom_Template_ID, Task_Details_QTY, Task_Details_AMOUNT, Special_Instructions, Tip, Delivery_Charges, Discount, Subtotal, Payment_Type, Task_Category, Earning, Pricing
+

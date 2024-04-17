@@ -1,0 +1,30 @@
+version: '3.1'
+
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: daksam
+      POSTGRES_DB: ecommerce
+    networks:
+      - my_network
+
+  data-ingestion:
+    build: .
+    command: python ingest_transform.py
+    depends_on:
+      - db
+    volumes:
+      - ./src:/usr/src/app
+    networks:
+      - my_network
+
+
+  
+  
+
+networks:
+  my_network:
+    driver: bridge
+
